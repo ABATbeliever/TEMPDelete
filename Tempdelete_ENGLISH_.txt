@@ -1,0 +1,61 @@
+@echo off
+title TEMPdelete
+echo ^<====TEMPdelete ver 1.0====^>
+echo.
+echo.
+echo.
+echo ============Caution!============
+echo.
+echo Really?
+set /p really="(Y/N):"
+if %really% == Y (goto ok)
+if %really% == y (goto ok)
+exit
+:ok
+echo.
+echo ========Start=========
+echo.
+rd /q /s C:\Windows\Temp
+echo "C:\Windows\Temp"OK
+rd /q /s C:\Program Files (x86)\Microsoft\Temp
+echo "C:\Program Files (x86)\Microsoft\Temp"OK
+rd /q /s C:\ProgramData\Microsoft\IdentityCRL\production\temp
+echo "C:\ProgramData\Microsoft\IdentityCRL\production\temp"OK
+rd /q /s C:\Users\Default\AppData\Local\Temp
+echo "C:\Users\Default\AppData\Local\Temp"OK
+rd /q /s C:\Windows\assembly\NativeImages_v4.0.30319_64\Temp
+echo "C:\Windows\assembly\NativeImages_v4.0.30319_64\Temp"OK
+rd /q /s C:\Windows\assembly\NativeImages_v4.0.30319_32\Temp
+echo "C:\Windows\assembly\NativeImages_v4.0.30319_32\Temp"OK
+rd /q /s C:\Windows\assembly\temp
+echo "C:\Windows\assembly\temp"OK
+rd /q /s C:\Windows\WinSxS\Temp
+echo "C:\Windows\WinSxS\Temp"OK
+rd /q /s C:\ProgramData\Microsoft\RAC\Temp
+echo "C:\ProgramData\Microsoft\RAC\Temp"OK
+echo.
+echo ==Folder_regeneration==
+echo.
+cd C:\Windows
+md Temp
+cd C:\Program Files (x86)\Microsoft
+md Temp
+cd C:\ProgramData\Microsoft\IdentityCRL\production
+md temp
+cd C:\Users\Default\AppData\Local
+md Temp
+cd C:\Windows\assembly\NativeImages_v4.0.30319_64
+md Temp
+cd C:\Windows\assembly\NativeImages_v4.0.30319_32
+md Temp
+cd C:\Windows\assembly
+md temp
+cd C:\Windows\WinSxS
+md Temp
+cd C:\ProgramData\Microsoft\RAC
+md Temp
+echo.
+echo ==========END==========
+echo.
+pause
+exit
