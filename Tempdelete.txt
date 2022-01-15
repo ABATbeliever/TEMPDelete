@@ -1,0 +1,61 @@
+@echo off
+title TEMPdelete
+echo ^<====TEMPdelete ver 0.9====^>
+echo.
+echo.
+echo.
+echo ============Caution!============
+echo.
+echo 本当にいいんですか?
+set /p really="(Y/N):"
+if %really% == Y (goto ok)
+if %really% == y (goto ok)
+exit
+:ok
+echo.
+echo ===========開始します===========
+echo.
+rd /q /s C:\Windows\Temp
+echo "C:\Windows\Temp"完了
+rd /q /s C:\Program Files (x86)\Microsoft\Temp
+echo "C:\Program Files (x86)\Microsoft\Temp"完了
+rd /q /s C:\ProgramData\Microsoft\IdentityCRL\production\temp
+echo "C:\ProgramData\Microsoft\IdentityCRL\production\temp"完了
+rd /q /s C:\Users\Default\AppData\Local\Temp
+echo "C:\Users\Default\AppData\Local\Temp"完了
+rd /q /s C:\Windows\assembly\NativeImages_v4.0.30319_64\Temp
+echo "C:\Windows\assembly\NativeImages_v4.0.30319_64\Temp"完了
+rd /q /s C:\Windows\assembly\NativeImages_v4.0.30319_32\Temp
+echo "C:\Windows\assembly\NativeImages_v4.0.30319_32\Temp"完了
+rd /q /s C:\Windows\assembly\temp
+echo "C:\Windows\assembly\temp"完了
+rd /q /s C:\Windows\WinSxS\Temp
+echo "C:\Windows\WinSxS\Temp"完了
+rd /q /s C:\ProgramData\Microsoft\RAC\Temp
+echo "C:\ProgramData\Microsoft\RAC\Temp"完了
+echo.
+echo ========フォルダ再生成==========
+echo.
+cd C:\Windows
+md Temp
+cd C:\Program Files (x86)\Microsoft
+md Temp
+cd C:\ProgramData\Microsoft\IdentityCRL\production
+md temp
+cd C:\Users\Default\AppData\Local
+md Temp
+cd C:\Windows\assembly\NativeImages_v4.0.30319_64
+md Temp
+cd C:\Windows\assembly\NativeImages_v4.0.30319_32
+md Temp
+cd C:\Windows\assembly
+md temp
+cd C:\Windows\WinSxS
+md Temp
+cd C:\ProgramData\Microsoft\RAC
+md Temp
+echo.
+echo =========終了しました===========
+echo.
+powershell start-sleep 2
+exit
