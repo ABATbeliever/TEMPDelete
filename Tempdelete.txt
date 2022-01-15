@@ -1,6 +1,6 @@
 @echo off
 title TEMPdelete
-echo ^<====TEMPdelete ver 0.9====^>
+echo ^<====TEMPdelete ver 1.0====^>
 echo.
 echo.
 echo.
@@ -57,5 +57,5 @@ md Temp
 echo.
 echo =========終了しました===========
 echo.
-powershell start-sleep 2
+pause
 exit
